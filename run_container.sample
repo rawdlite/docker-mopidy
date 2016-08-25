@@ -1,0 +1,1 @@
+docker run -d  --name astest --net host --device /dev/mixer --device /dev/snd/controlC2 --device  /dev/snd/pcmC2D1c  --device /dev/snd/pcmC2D1p --device /dev/snd/pcmC2D0c --device /dev/snd/pcmC2D0p -v ~/.config/mopidy/mopidy-docker.conf:/root/.config/mopidy/mopidy.conf  -v /data/raid1/music:/data/raid1/music mopidy
