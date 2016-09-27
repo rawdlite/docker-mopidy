@@ -48,7 +48,7 @@ RUN pip install uritools
 RUN pip install flask
 RUN pip install pylast
 RUN pip install beets-copyartifacts
-COPY root/setup.sh .
+COPY root /
 RUN chmod +x setup.sh
 EXPOSE 6680 6600
 CMD ["/usr/local/bin/mopidy"]

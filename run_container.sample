@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 docker run -d \
    --name mopidy \
    --net host \
@@ -7,3 +8,6 @@ docker run -d \
    -v ~/.config/beet/:/root/.config/beet/ \
    -v ~/.local/share/mopidy/bigbeet/:/root/.local/share/mopidy/bigbeet/ \
 rawdlite/mopidy
+=======
+docker run -d  --name mopidy --net host --device /dev/snd -v ~/.config/mopidy/mopidy-docker.conf:/root/.config/mopidy/mopidy.conf  -v /data/raid1/music:/data/raid1/music rawdlite/mopidy
+>>>>>>> 33e7faace413f54acfd18d711f6fa92d4d86de0d
