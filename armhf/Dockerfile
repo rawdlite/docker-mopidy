@@ -21,6 +21,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
 	python-gst-1.0 \
 	unzip \
 	wget
+
 RUN wget -q -O - http://apt.mopidy.com/mopidy.gpg | apt-key add -
 RUN echo "deb http://apt.mopidy.com/ stable main contrib non-free" > /etc/apt/sources.list.d/mopidy.list
 RUN echo "deb-src http://apt.mopidy.com/ stable main contrib non-free" >> /etc/apt/sources.list.d/mopidy.list
