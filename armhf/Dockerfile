@@ -39,7 +39,7 @@ RUN pip install beets
 RUN pip install Mopidy-Mobile
 RUN git clone https://github.com/rawdlite/mopidy-bigbeet.git && \
     cd mopidy-bigbeet && \
-    pip install .
+    pip install --editable .
 RUN pip install peewee
 RUN pip install --user https://github.com/rogerbinns/apsw/releases/download/3.14.1-r1/apsw-3.14.1-r1.zip \
 --global-option=fetch --global-option=--version --global-option=3.14.1 --global-option=--all \
@@ -49,7 +49,7 @@ RUN pip install flask
 RUN pip install pylast
 RUN pip install beets-copyartifacts
 COPY root /
-RUN chmod +x setup.sh
+RUN chmod +x *.sh
 EXPOSE 6680 6600
 CMD ["/usr/local/bin/mopidy"]
 

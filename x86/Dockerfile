@@ -41,7 +41,6 @@ RUN pip install Mopidy-BeetsLocal
 RUN pip install Mopidy-Mobile
 RUN pip install Mopidy-MusicBox-Webclient
 RUN pip install Mopidy-Tachikoma
-<<<<<<< HEAD
 RUN git clone https://github.com/rawdlite/mopidy-bigbeet.git && \
     cd mopidy-bigbeet && \
     pip install --editable .
@@ -54,10 +53,7 @@ RUN pip install flask
 RUN pip install pylast
 RUN pip install beets-copyartifacts
 COPY root /
-RUN chmod +x setup.sh
-=======
-COPY root /
->>>>>>> 33e7faace413f54acfd18d711f6fa92d4d86de0d
+RUN chmod +x *.sh
 EXPOSE 6680 6600
 CMD ["/usr/local/bin/mopidy"]
 
