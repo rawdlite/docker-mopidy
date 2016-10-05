@@ -52,6 +52,7 @@ RUN pip install uritools
 RUN pip install flask
 RUN pip install pylast
 RUN pip install beets-copyartifacts
+RUN pip install pyacoustid
 COPY root /
 RUN chmod +x *.sh
 EXPOSE 6680 6600
