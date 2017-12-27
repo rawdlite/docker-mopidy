@@ -1,5 +1,6 @@
 # docker-mopidy
 Run mopidy plus various extensions in a docker container
+* This is the development Branch
 
 - Mopidy
 - Mopidy-ALSAMixer
@@ -7,20 +8,25 @@ Run mopidy plus various extensions in a docker container
 - Mopidy-Spotify
 - Mopidy-Somafm
 - Mopidy-Soundcloud
-- Mopidy-BeetsLocal
+- Mopidy-Bigbeet
 - Mopidy-Mobile
+- Mopidy-Iris
 
 Build
 =====
 
-cd into the directory of your architecture.
+for Raspberry Pi, Odroid etc.
 
-	docker build -t rawdlite/mopidy .
+	docker build -t rawdlite/mopidy -f Dockerfile.armhf .
+
+for x86 architecture
+    
+        docker build -t rawdlite/mopidy .
 
 RUN
 ===
  
 	docker run -d  --name mopidy --net host --device /dev/snd  \
-		-v ~/.config/mopidy/mopidy.conf:/root/.config/mopidy/mopidy.conf  \
+		-v ~/.config:/root/.config  \
 		-v /data/music:/data/music rawdlite/mopidy 
 

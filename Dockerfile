@@ -41,12 +41,13 @@ RUN pip install Mopidy-BeetsLocal
 RUN pip install Mopidy-Mobile
 RUN pip install Mopidy-MusicBox-Webclient
 RUN pip install Mopidy-Tachikoma
+RUN pip install Mopidy-Iris
 RUN git clone https://github.com/rawdlite/mopidy-bigbeet.git && \
     cd mopidy-bigbeet && \
     pip install --editable .
 RUN pip install peewee
-RUN pip install --user https://github.com/rogerbinns/apsw/releases/download/3.14.1-r1/apsw-3.14.1-r1.zip \
---global-option=fetch --global-option=--version --global-option=3.14.1 --global-option=--all \
+RUN pip install --user https://github.com/rogerbinns/apsw/releases/download/3.21.0-r1/apsw-3.21.0-r1.zip \
+--global-option=fetch --global-option=--version --global-option=3.21.0 --global-option=--all \
 --global-option=build --global-option=--enable-all-extensions
 RUN pip install uritools
 RUN pip install flask
@@ -56,5 +57,5 @@ RUN pip install pyacoustid
 COPY root /
 RUN chmod +x *.sh
 EXPOSE 6680 6600
-CMD ["/usr/local/bin/mopidy"]
+CMD ["/usr/local/bin/mopidy", "--save-debug-log"]
 
