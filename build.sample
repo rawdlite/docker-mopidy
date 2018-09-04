@@ -1,0 +1,2 @@
+docker build -t diskstation:5555/rawdlite/mopidy:latest
+docker push diskstation:5555/rawdlite/mopidy:latest
