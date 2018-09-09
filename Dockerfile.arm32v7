@@ -1,4 +1,4 @@
-FROM armv7/armhf-ubuntu_core:16.04
+FROM arm32v7/ubuntu
 RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get update && \
     apt-get install -y \
@@ -21,9 +21,9 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
 	wget
 RUN apt-add-repository universe
 RUN wget -q -O - http://apt.mopidy.com/mopidy.gpg | apt-key add -
+#RUN wget -q -O /etc/apt/sources.list.d/mopidy.list https://apt.mopidy.com/stretch.list
 RUN echo "deb http://apt.mopidy.com/ stable main contrib non-free" > /etc/apt/sources.list.d/mopidy.list
 RUN echo "deb-src http://apt.mopidy.com/ stable main contrib non-free" >> /etc/apt/sources.list.d/mopidy.list
-# RUN apt-get install -y  apt-transport-https
 RUN apt-get update && \
     apt-get install -y \
         libspotify12 \
@@ -48,8 +48,8 @@ RUN cd /root/src && \
     cd mopidy-bigbeet && \
     pip install --editable .
 RUN pip install peewee
-RUN pip install --user https://github.com/rogerbinns/apsw/releases/download/3.21.0-r1/apsw-3.21.0-r1.zip \
---global-option=fetch --global-option=--version --global-option=3.21.0 --global-option=--all \
+RUN pip install --user https://github.com/rogerbinns/apsw/releases/download/3.24.0-r1/apsw-3.24.0-r1.zip \
+--global-option=fetch --global-option=--version --global-option=3.24.0 --global-option=--all \
 --global-option=build --global-option=--enable-all-extensions
 RUN pip install uritools
 RUN pip install flask

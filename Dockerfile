@@ -27,8 +27,7 @@ RUN pip install -U Mopidy-ALSAMixer
 RUN pip install Mopidy-Yamaha
 
 RUN wget -q -O - http://apt.mopidy.com/mopidy.gpg | apt-key add -
-RUN echo "deb http://apt.mopidy.com/ stable main contrib non-free" > /etc/apt/sources.list.d/mopidy.list
-RUN echo "deb-src http://apt.mopidy.com/ stable main contrib non-free" >> /etc/apt/sources.list.d/mopidy.list
+RUN sudo wget -q -O /etc/apt/sources.list.d/mopidy.list https://apt.mopidy.com/stretch
 RUN apt-get install -y --force-yes apt-transport-https
 RUN apt-get update && \
     apt-get install -y libspotify12 libspotify-dev \
@@ -40,18 +39,18 @@ RUN pip install beets
 RUN pip install Mopidy-BeetsLocal
 RUN pip install Mopidy-Mobile
 RUN pip install Mopidy-MusicBox-Webclient
-RUN pip install Mopidy-Tachikoma
+RUN pip install Mopidy-Gmusic
 RUN pip install Mopidy-Iris
 RUN git clone https://github.com/rawdlite/mopidy-bigbeet.git && \
     cd mopidy-bigbeet && \
     pip install --editable .
 RUN pip install peewee
-RUN pip install --user https://github.com/rogerbinns/apsw/releases/download/3.21.0-r1/apsw-3.21.0-r1.zip \
---global-option=fetch --global-option=--version --global-option=3.21.0 --global-option=--all \
+RUN pip install --user https://github.com/rogerbinns/apsw/releases/download/3.24.0-r1/apsw-3.24.0-r1.zip \
+--global-option=fetch --global-option=--version --global-option=3.24.0 --global-option=--all \
 --global-option=build --global-option=--enable-all-extensions
 RUN pip install uritools
 RUN pip install flask
-RUN pip install pylast
+RUN pip install pylast=2.2.0
 RUN pip install beets-copyartifacts
 RUN pip install pyacoustid
 COPY root /
