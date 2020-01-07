@@ -1,2 +1,1 @@
-docker build -t diskstation:5555/rawdlite/mopidy:latest
-docker push diskstation:5555/rawdlite/mopidy:latest
+docker buildx build --platform linux/amd64,linux/arm/v7 --push -t diskstation:5555/rawdlite/mopidy:buildx .
