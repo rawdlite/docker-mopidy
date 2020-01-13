@@ -1,8 +1,11 @@
 # docker-mopidy
 Run mopidy plus various extensions in a docker container
-* To be extended 
+The image plays bitperfect using alsa devices.
+Pulseaudio is not needed.
  
-- Mopidy
+Plugins
+=======
+
 - Mopidy-Local
 - Mopidy-Mpd
 - Mopidy-Podcast
@@ -13,6 +16,9 @@ Run mopidy plus various extensions in a docker container
 - Mopidy-Somafm
 - Mopidy-Soundcloud
 - Mopidy-Tunein
+
+
+To be extended
 
 RUN
 ===
