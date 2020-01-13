@@ -3,9 +3,6 @@ docker run -d \
    --net host \
    --device /dev/snd  \
    -v ~/.config/mopidy/mopidy-docker.conf:/root/.config/mopidy/mopidy.conf \
-   -v ~/import:/root/import \
    -v /data/music:/data/music \
    -v /data/raid1/music/:/data/raid1/music/  \
-   -v ~/.config/beets/:/root/.config/beets/ \
-   -v ~/.local/share/mopidy/bigbeet/:/root/.local/share/mopidy/bigbeet/ \
-rawdlite/mopidy:bigbeet
+rawdlite/mopidy:latest

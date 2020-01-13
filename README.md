@@ -1,32 +1,32 @@
 # docker-mopidy
 Run mopidy plus various extensions in a docker container
-* This is the development Branch
-
+* To be extended 
+ 
 - Mopidy
+- Mopidy-Local
+- Mopidy-Mpd
+- Mopidy-Podcast
+- Mopidy-Podcast-Itunes
 - Mopidy-ALSAMixer
-- Mopidy-Yamaha
+- Mopidy-Scrobbler
 - Mopidy-Spotify
 - Mopidy-Somafm
 - Mopidy-Soundcloud
-- Mopidy-Bigbeet
-- Mopidy-Mobile
-- Mopidy-Iris
-
-Build
-=====
-
-for Raspberry Pi, Odroid etc.
-
-	docker build -t rawdlite/mopidy -f Dockerfile.armhf .
-
-for x86 architecture
-    
-        docker build -t rawdlite/mopidy .
+- Mopidy-Tunein
 
 RUN
 ===
- 
-	docker run -d  --name mopidy --net host --device /dev/snd  \
-		-v ~/.config:/root/.config  \
-		-v /data/music:/data/music rawdlite/mopidy 
 
+        docker run -d  --name mopidy --net host --device /dev/snd  \
+                -v ~/.config:/root/.config  \
+                -v /data/music:/data/music rawdlite/mopidy
+
+Buildx
+======
+
+Using buildx, it is possible to build a multi-platform image that runs on Raspberry Pi, Odroid etc. (armv7)
+as well as on x86 architecture (amd64)
+
+docker buildx build --platform linux/amd64,linux/arm/v7 --push -t rawdlite/mopidy:latest .
+
+Docker picks the correct image based on the node’s platform
