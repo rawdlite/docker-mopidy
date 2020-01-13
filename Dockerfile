@@ -25,7 +25,6 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
 RUN pip install -U  Mopidy
 RUN pip install -U Mopidy-ALSAMixer
 RUN pip install Mopidy-Yamaha
-
 RUN wget -q -O - http://apt.mopidy.com/mopidy.gpg | apt-key add -
 RUN echo "deb http://apt.mopidy.com/ stable main contrib non-free" > /etc/apt/sources.list.d/mopidy.list
 RUN echo "deb-src http://apt.mopidy.com/ stable main contrib non-free" >> /etc/apt/sources.list.d/mopidy.list
@@ -41,7 +40,6 @@ RUN pip install Mopidy-BeetsLocal
 RUN pip install Mopidy-Mobile
 RUN pip install Mopidy-MusicBox-Webclient
 RUN pip install Mopidy-Tachikoma
-COPY root /
 EXPOSE 6680 6600
 CMD ["/usr/local/bin/mopidy"]
 
