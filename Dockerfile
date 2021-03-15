@@ -1,4 +1,4 @@
-FROM ubuntu:19.10
+FROM ubuntu:20.04
 RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get update && \
     apt-get upgrade -y && \
@@ -15,11 +15,12 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
        gstreamer1.0-plugins-bad
 RUN curl -k "https://apt.mopidy.com/mopidy.gpg" | apt-key add -
 RUN curl -k "https://apt.mopidy.com/buster.list" > /etc/apt/sources.list.d/mopidy.list
+RUN add-apt-repository ppa:jean-francois-dockes/upnpp1
 RUN apt-get update && \
     apt-get install -y \
        mopidy \
+       upmpdcli \
        mopidy-local \
-       mopidy-local-sqlite \
        mopidy-mpd \
        mopidy-podcast \
        mopidy-podcast-itunes \
@@ -28,7 +29,7 @@ RUN apt-get update && \
        mopidy-soundcloud \
        mopidy-spotify \
        mopidy-tunein
-RUN sudo python3 -m pip install Mopidy-Mobile
+RUN python3 -m pip install Mopidy-Mobile
 
 RUN mkdir -p /data/music
 EXPOSE 6680 6600
